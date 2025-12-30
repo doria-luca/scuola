@@ -20,7 +20,6 @@ public class Esercizio1 {
                 trasposta[j][i] = matrice[i][j];
             }
         }
-        stampaMatrice(trasposta);
     }
 
     public static void scambiaRighe(int[][] matrice, int r1, int r2){
@@ -56,15 +55,6 @@ public class Esercizio1 {
             System.out.println("La somma della colonna " + j + " è: " + somma);
         }
     }
-    
-    public static void stampaMatrice(int[][] matrice){
-        for(int i = 0; i < matrice.length; i++){
-            for(int j = 0; j < matrice[i].length; j++){
-                System.out.print(matrice[i][j] + "\t");
-            }
-            System.out.println();
-        }
-    }
     public static void main(String[] args) {
         Scanner kbd = new Scanner(System.in);
 
@@ -74,7 +64,12 @@ public class Esercizio1 {
         int m = kbd.nextInt();
         int[][] matrice = creaMatrice(n, m);
         System.out.println("Matrice generata:");
-        stampaMatrice(matrice);
+        for (int i = 0; i < matrice.length; i++) {
+            for (int j = 0; j < matrice[i].length; j++) {
+                System.out.print(matrice[i][j] + "\t");
+            }
+            System.out.println();
+        }
 
         boolean ciclo = true;
 
@@ -84,6 +79,12 @@ public class Esercizio1 {
             switch (cosa) {
                 case 1:
                     traspostaMatrice(matrice);
+                    for (int i = 0; i < matrice.length; i++) {
+                        for (int j = 0; j < matrice[i].length; j++) {
+                            System.out.print(matrice[i][j] + "\t");
+                            }
+                        System.out.println();
+                    }
                     break;
                 case 2:
                     System.out.println("Inserisci la prima riga da scambiare (0 - "+ (n - 1) + "):");
@@ -91,7 +92,12 @@ public class Esercizio1 {
                     System.out.println("Inserisci la seconda riga da scambiare (0 - "+ (n - 1) + "):");
                     int r2 = kbd.nextInt();
                     scambiaRighe(matrice, r1, r2);
-                    stampaMatrice(matrice);
+                    for (int i = 0; i < matrice.length; i++) {
+                        for (int j = 0; j < matrice[i].length; j++) {
+                            System.out.print(matrice[i][j] + "\t");
+                            }
+                        System.out.println();
+                    }
                     break;
                 case 3:
                     System.out.println("Inserisci la prima colonna da scambiare (0 - "+ (m - 1) + "):");
@@ -99,7 +105,12 @@ public class Esercizio1 {
                     System.out.println("Inserisci la seconda colonna da scambiare (0 - "+ (m - 1) + "):");
                     int c2 = kbd.nextInt();
                     scambiaColonne(matrice, c1, c2);
-                    stampaMatrice(matrice);
+                    for (int i = 0; i < matrice.length; i++) {
+                        for (int j = 0; j < matrice[i].length; j++) {
+                            System.out.print(matrice[i][j] + "\t");
+                            }
+                        System.out.println();
+                    }
                     break;
                 case 4:
                     sommaRighe(matrice);
