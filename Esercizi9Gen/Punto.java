@@ -16,21 +16,9 @@ public class Punto {
         return y;
     }
     
-    public Punto trasla (Direzione direzione, int distanza){
-        switch (direzione) {
-            case SU:
-                y += distanza;
-                break;
-            case GIU:
-                y -= distanza;
-                break;
-            case DESTRA:
-                x += distanza;
-                break;
-            default:
-                x -= distanza;
-                break;
-        }
+    public Punto trasla(Direzione direzione, int distanza){
+        x += direzione.getDx() * distanza;
+        y += direzione.getDy() * distanza;
         return this;
     }
 
@@ -51,13 +39,5 @@ public class Punto {
             return false;
         }
         return true;    
-    }
-
-    public Punto calcolaCoordinate(int altezza, int angolo){
-        int altezzaArrivo = altezza - y;
-        y = altezza;
-        double tangente = Math.tan(Math.toRadians(angolo));
-        x = (int) Math.round(x + (altezzaArrivo / tangente));
-        return this;
     }
 }

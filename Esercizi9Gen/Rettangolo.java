@@ -1,13 +1,22 @@
 package Esercizi9Gen;
 
 public class Rettangolo extends Quadrilatero{
-
+    protected int larghezza;
+    protected int altezza;
     public Rettangolo(Punto puntoA, int larghezza, int altezza) {
-        super(puntoA, puntoA.trasla(Direzione.DESTRA, larghezza), puntoA.trasla(Direzione.SU, altezza), puntoA.trasla(Direzione.SINISTRA, larghezza));
+        super(puntoA, new Punto(puntoA.x + larghezza, puntoA.y), new Punto(puntoA.x + larghezza, puntoA.y + altezza), new Punto(puntoA.x, puntoA.y + altezza));
+    }
+    
+    public int getLarghezza() {
+        return larghezza;
+    }
+
+    public int getAltezza() {
+        return altezza;
     }
     
     public double getArea(){
-        return puntoA.distanza(puntoB) * puntoB.distanza(puntoC);
+        return larghezza * altezza;
     }
 
     @Override
